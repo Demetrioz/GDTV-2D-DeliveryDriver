@@ -1,0 +1,13 @@
+# https://github.com/github/gitignore/blob/main/Unity.gitignore
+
+# IDE
+.git
+.idea
+.vscode
+
+# Unity
+obj
+Library
+Temp
+Logs
+UserSettings

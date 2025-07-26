@@ -36,14 +36,14 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var turnAmount = -(Input.GetAxis(TurnControl) * turnSpeed);
-        var driveAmount = Input.GetAxis(DriveControl) * driveSpeed;
+        var normalizedTurnAmount = -(Input.GetAxis(TurnControl) * turnSpeed) * Time.deltaTime;
+        var normalizedDriveAmount = Input.GetAxis(DriveControl) * driveSpeed * Time.deltaTime;
         
-        turnAmount = driveAmount >= 0
-            ? turnAmount 
-            : -turnAmount;
+        normalizedTurnAmount = normalizedDriveAmount >= 0
+            ? normalizedTurnAmount 
+            : -normalizedTurnAmount;
         
-        transform.Rotate(0, 0, turnAmount);
-        transform.Translate(0, driveAmount, 0);
+        transform.Rotate(0, 0, normalizedTurnAmount);
+        transform.Translate(0, normalizedDriveAmount, 0);
     }
 }

@@ -6,6 +6,16 @@ using UnityEngine;
 public class Driver : MonoBehaviour
 {
     /// <summary>
+    /// The "Name" of the Horizontal control from Project Settings -> Axes
+    /// </summary>
+    private const string TurnControl = "Horizontal";
+    
+    /// <summary>
+    /// The "Name" of the Vertical control from Project Settings -> Axes
+    /// </summary>
+    private const string DriveControl = "Vertical";
+    
+    /// <summary>
     /// The speed at which the vehicle turns
     /// </summary>
     [SerializeField]
@@ -26,7 +36,14 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, turnSpeed);
-        transform.Translate(0, driveSpeed, 0);
+        var turnAmount = -(Input.GetAxis(TurnControl) * turnSpeed);
+        var driveAmount = Input.GetAxis(DriveControl) * driveSpeed;
+        
+        turnAmount = driveAmount >= 0
+            ? turnAmount 
+            : -turnAmount;
+        
+        transform.Rotate(0, 0, turnAmount);
+        transform.Translate(0, driveAmount, 0);
     }
 }

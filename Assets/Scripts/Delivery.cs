@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
+    /// <summary>
+    /// Color that the sprite will turn when a package has been picked up
+    /// </summary>
     [SerializeField]
     public Color32 hasPackageColor = new(255, 255, 255, 255);
     
+    /// <summary>
+    /// Color that the sprite will turn when a package has been droped off
+    /// </summary>
     [SerializeField]
     public Color32 noPackageColor = new(0, 0, 0, 255);
     
+    /// <summary>
+    /// The delay before a package is destroyed after it has been picked up
+    /// </summary>
     [SerializeField]
     public float destroyDelay = 0.5f;
     

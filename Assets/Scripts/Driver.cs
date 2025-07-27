@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// ReSharper disable Unity.UnknownTag
+
 /// <summary>
 /// Allows the game object this script is attached to, to drive
 /// </summary>
@@ -19,21 +21,39 @@ public class Driver : MonoBehaviour
     /// The speed at which the vehicle turns
     /// </summary>
     [SerializeField]
-    public float turnSpeed = 0.1f;
+    public float turnSpeed = 255f;
     
     /// <summary>
     /// The speed at which the vehicle moves
     /// </summary>
     [SerializeField]
-    public float driveSpeed = 0.01f;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    public float driveSpeed = 15f;
 
+    /// <summary>
+    /// The speed at which the vehicle drives after running into an obstacle
+    /// </summary>
+    [SerializeField]
+    public float slowSpeed = 10f;
+    
+    /// <summary>
+    /// The speed at which the vehicle drives after running into a boost
+    /// </summary>
+    [SerializeField]
+    public float boostSpeed = 30f;
+    
+    private const string BoostTag = "Boost";
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        driveSpeed = slowSpeed;
     }
 
-    // Update is called once per frame
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(BoostTag))
+            driveSpeed = boostSpeed;
+    }
+
     void Update()
     {
         var normalizedTurnAmount = -(Input.GetAxis(TurnControl) * turnSpeed) * Time.deltaTime;

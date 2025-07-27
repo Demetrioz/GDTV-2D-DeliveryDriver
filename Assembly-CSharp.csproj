@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Collision.cs" />
+    <Compile Include="Assets/Scripts/FollowCamera.cs" />
     <Compile Include="Assets/Scripts/Driver.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/home/kevin/Unity/Hub/Editor/6000.0.54f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -959,9 +960,6 @@
     </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>/home/kevin/GameDev/GameDevTv/2dDeveloper/DeliveryDriver/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>/home/kevin/GameDev/GameDevTv/2dDeveloper/DeliveryDriver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>/home/kevin/GameDev/GameDevTv/2dDeveloper/DeliveryDriver/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>

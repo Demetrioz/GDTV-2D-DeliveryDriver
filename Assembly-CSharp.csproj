@@ -46,7 +46,7 @@
     <Analyzer Include="/home/kevin/Unity/Hub/Editor/6000.0.54f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/Collision.cs" />
+    <Compile Include="Assets/Scripts/Delivery.cs" />
     <Compile Include="Assets/Scripts/FollowCamera.cs" />
     <Compile Include="Assets/Scripts/Driver.cs" />
     <Reference Include="UnityEngine">
